@@ -48,8 +48,7 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     }
 
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.searchBar.endEditing(true)
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {        self.searchBar.endEditing(true)
     }
     
     override func viewDidLoad() {
