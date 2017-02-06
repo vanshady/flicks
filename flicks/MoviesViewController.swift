@@ -14,7 +14,7 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableView: UITableView!
     var movies: [NSDictionary]?
     
-    func loadDatafromNetwork() {
+    func loadDatafromNetwork(_ refreshControl: UIRefreshControl) {
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -30,6 +30,7 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 if let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary {
                     self.movies = dataDictionary["results"] as? [NSDictionary]
                     self.tableView.reloadData()
+                    refreshControl.endRefreshing()
                 }
             }
         }
@@ -39,10 +40,16 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.dataSource = self
         tableView.delegate = self
         
-        loadDatafromNetwork()
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(loadDatafromNetwork(_:)), for: UIControlEvents.valueChanged)
+        // add refresh control to table view
+        tableView.insertSubview(refreshControl, at: 0)
+        
+        loadDatafromNetwork(refreshControl)
     }
 
 
