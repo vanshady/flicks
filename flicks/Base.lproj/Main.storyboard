@@ -21,8 +21,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="NjD-Ci-VO8">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="135" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="y01-1P-RTZ">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="135" id="dN8-uT-pcc" customClass="MovieCell" customModule="flicks" customModuleProvider="target">
@@ -67,16 +71,34 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="❗️Network Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSn-0E-O68">
+                                <rect key="frame" x="0.0" y="20" width="375" height="30"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="89I-ky-lFI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="y01-1P-RTZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="KgJ-Ly-DzM"/>
+                            <constraint firstItem="y01-1P-RTZ" firstAttribute="top" secondItem="NjD-Ci-VO8" secondAttribute="bottom" id="OOd-bz-rep"/>
+                            <constraint firstAttribute="trailing" secondItem="NjD-Ci-VO8" secondAttribute="trailing" id="Z5H-Gq-tTh"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="y01-1P-RTZ" secondAttribute="bottom" id="ed5-OZ-7ba"/>
+                            <constraint firstItem="dSn-0E-O68" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gLz-s1-86G"/>
+                            <constraint firstItem="NjD-Ci-VO8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="j46-aa-G2f"/>
+                            <constraint firstAttribute="trailing" secondItem="dSn-0E-O68" secondAttribute="trailing" id="k7O-gP-HTf"/>
+                            <constraint firstItem="dSn-0E-O68" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="pRy-Vf-tq7"/>
+                            <constraint firstItem="NjD-Ci-VO8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="w65-Yp-ETa"/>
                             <constraint firstAttribute="trailing" secondItem="y01-1P-RTZ" secondAttribute="trailing" id="zi6-rY-7lX"/>
                             <constraint firstItem="y01-1P-RTZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zj9-rO-0am"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="networkAlert" destination="dSn-0E-O68" id="TcD-AJ-DNZ"/>
+                        <outlet property="searchBar" destination="NjD-Ci-VO8" id="P76-SX-QRv"/>
                         <outlet property="tableView" destination="y01-1P-RTZ" id="UJB-dA-BfU"/>
                     </connections>
                 </viewController>

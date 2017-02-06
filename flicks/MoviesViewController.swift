@@ -10,9 +10,13 @@ import UIKit
 import AFNetworking
 import MBProgressHUD
 
-class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var networkAlert: UILabel!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     var movies: [NSDictionary]?
+    var filteredMovies: [NSDictionary]?
     
     func loadDatafromNetwork(_ refreshControl: UIRefreshControl) {
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
@@ -29,13 +33,23 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             if let data = data {
                 if let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary {
                     self.movies = dataDictionary["results"] as? [NSDictionary]
+                    self.filteredMovies = dataDictionary["results"] as? [NSDictionary]
                     self.tableView.reloadData()
                     refreshControl.endRefreshing()
+                    self.networkAlert.isHidden = true
+                } else {
+                    self.networkAlert.isHidden = false
                 }
+            } else {
+                self.networkAlert.isHidden = false
             }
         }
         task.resume()
 
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.endEditing(true)
     }
     
     override func viewDidLoad() {
@@ -43,6 +57,8 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         tableView.dataSource = self
         tableView.delegate = self
+        searchBar.delegate = self
+
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(loadDatafromNetwork(_:)), for: UIControlEvents.valueChanged)
@@ -59,7 +75,7 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let movies = movies {
+        if let movies = filteredMovies {
             return movies.count
         } else {
             return 0
@@ -68,7 +84,7 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
-        let movie = movies![indexPath.row]
+        let movie = filteredMovies![indexPath.row]
         let title = movie["title"] as! String
         let overview = movie["overview"] as! String
         let posterPath = movie["poster_path"] as! String
@@ -84,7 +100,6 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             imageRequest as URLRequest,
             placeholderImage: nil,
             success: { (imageRequest, imageResponse, image) -> Void in
-                
                 // imageResponse will be nil if the image is cached
                 if imageResponse != nil {
                     cell.posterView.alpha = 0.0
@@ -97,9 +112,19 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
         },
             failure: { (imageRequest, imageResponse, error) -> Void in
-                // do something for the failure condition
+                self.networkAlert.isHidden = false
         })
         return cell
+    }
+    
+    // This method updates filteredData based on the text in the Search Box
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredMovies = searchText.isEmpty ? movies : movies?.filter({(movie: NSDictionary) -> Bool in
+            let title = movie["title"] as! String
+            return title.range(of: searchText, options: .caseInsensitive) != nil
+        })
+        
+        tableView.reloadData()
     }
 
     /*
