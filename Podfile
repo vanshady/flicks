@@ -6,5 +6,6 @@ target 'flicks' do
   use_frameworks!
 
   # Pods for flicks
-  pod 'Alamofire', '~> 4.3'
+  pod 'AFNetworking', '~> 2.6'
+  pod 'MBProgressHUD'
 end
