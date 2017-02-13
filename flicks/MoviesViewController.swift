@@ -116,6 +116,8 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             failure: { (imageRequest, imageResponse, error) -> Void in
                 self.networkAlert.isHidden = false
         })
+        
+        cell.selectionStyle = .blue
         return cell
     }
     
