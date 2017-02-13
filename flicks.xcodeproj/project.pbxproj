@@ -14,6 +14,7 @@
 		582EEC821E47DDAE0093389F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 582EEC801E47DDAE0093389F /* LaunchScreen.storyboard */; };
 		582EEC8A1E47E5500093389F /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582EEC891E47E5500093389F /* MoviesViewController.swift */; };
 		582EEC8C1E47ED090093389F /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582EEC8B1E47ED090093389F /* MovieCell.swift */; };
+		587C39531E513D180081D39D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587C39521E513D180081D39D /* DetailViewController.swift */; };
 		A911894D2102523F0B927250 /* Pods_flicks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FEC06A8CC61A439032030F /* Pods_flicks.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		582EEC831E47DDAE0093389F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		582EEC891E47E5500093389F /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 		582EEC8B1E47ED090093389F /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		587C39521E513D180081D39D /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5EB9756C4A2A0D12A9099ED0 /* Pods-flicks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flicks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-flicks/Pods-flicks.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				582EEC891E47E5500093389F /* MoviesViewController.swift */,
+				587C39521E513D180081D39D /* DetailViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 			files = (
 				582EEC751E47DDAE0093389F /* AppDelegate.swift in Sources */,
 				582EEC7D1E47DDAE0093389F /* flicks.xcdatamodeld in Sources */,
+				587C39531E513D180081D39D /* DetailViewController.swift in Sources */,
 				582EEC8C1E47ED090093389F /* MovieCell.swift in Sources */,
 				582EEC8A1E47E5500093389F /* MoviesViewController.swift in Sources */,
 			);
