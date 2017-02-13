@@ -1,34 +1,30 @@
-# Project 1 - *Flicks*
+# Project 2 - *flicks*
 
-**Flicks** is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
+**flicks** is a movies app displaying box office and top rental DVDs using [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **3** hours spent in total
+Time spent: **5** hours spent in total
 
 ## User Stories
 
-The following **required** functionality is complete:
+The following **required** functionality is completed:
 
-- [X] User can view a list of movies currently playing in theaters from The Movie Database.
-- [X] Poster images are loaded using the UIImageView category in the AFNetworking library.
-- [X] User sees a loading state while waiting for the movies API.
-- [X] User can pull to refresh the movie list.
+- [x] User can view movie details by tapping on a cell.
+- [x] User can select from a tab bar for either **Now Playing** or **Top Rated** movies.
+- [x] Customize the selection effect of the cell.
 
 The following **optional** features are implemented:
 
-- [X] User sees an error message when there's a networking error.
-- [ ] Movies are displayed using a CollectionView instead of a TableView.
-- [X] User can search for a movie.
-- [X] All images fade in as they are loading.
-- [ ] Customize the UI.
+- [x] For the large poster, load the low resolution image first and then switch to the high resolution image when complete.
+- [x] Customize the navigation bar.
 
 The following **additional** features are implemented:
 
-- [X] List anything else that you can get done to improve the app functionality!
+- [x] List anything else that you can get done to improve the app functionality!
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1. Better UI
-2. Dismiss keyboard if else where is pressed.
+1. More information about movies
+2. Better error control
 
 ## Video Walkthrough
 
