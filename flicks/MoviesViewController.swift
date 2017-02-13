@@ -13,11 +13,11 @@ import MBProgressHUD
 class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var networkAlert: UILabel!
-    @IBOutlet weak var searchBar: UISearchBar!
     
     var movies: [NSDictionary]?
     var filteredMovies: [NSDictionary]?
     var endpoint: String!
+    var searchBar = UISearchBar()
     
     func loadDatafromNetwork(_ refreshControl: UIRefreshControl) {
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
@@ -57,10 +57,13 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.titleView = searchBar
+        
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
-
+        
+        searchBar.placeholder = "Search"
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(loadDatafromNetwork(_:)), for: UIControlEvents.valueChanged)
