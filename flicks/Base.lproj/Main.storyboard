@@ -121,52 +121,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r92-Xz-9ZK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r92-Xz-9ZK">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8GP-7p-8VD">
-                                <rect key="frame" x="0.0" y="372" width="375" height="295"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Swp-JD-V6Y">
+                                <rect key="frame" x="21" y="64" width="333" height="603"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxC-Ce-WPF">
-                                        <rect key="frame" x="8" y="33" width="359" height="25"/>
+                                    <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8GP-7p-8VD">
+                                        <rect key="frame" x="0.0" y="500" width="333" height="295"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxC-Ce-WPF">
+                                                <rect key="frame" x="13" y="25" width="305" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="TVQ-R1-bub"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXq-3A-gha">
+                                                <rect key="frame" x="13" y="60" width="305" height="230"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="TVQ-R1-bub"/>
+                                            <constraint firstAttribute="height" constant="295" id="4Td-g4-RZw"/>
+                                            <constraint firstItem="zxC-Ce-WPF" firstAttribute="leading" secondItem="8GP-7p-8VD" secondAttribute="leadingMargin" constant="5" id="8Gn-km-hiy"/>
+                                            <constraint firstItem="zxC-Ce-WPF" firstAttribute="trailing" secondItem="UXq-3A-gha" secondAttribute="trailing" id="GmQ-jA-0cO"/>
+                                            <constraint firstAttribute="bottom" secondItem="UXq-3A-gha" secondAttribute="bottom" constant="5" id="OlS-3B-Qd6"/>
+                                            <constraint firstItem="UXq-3A-gha" firstAttribute="top" secondItem="zxC-Ce-WPF" secondAttribute="bottom" constant="10" id="VBL-qm-RsB"/>
+                                            <constraint firstItem="zxC-Ce-WPF" firstAttribute="top" secondItem="8GP-7p-8VD" secondAttribute="top" constant="25" id="Z2F-uk-1Wc"/>
+                                            <constraint firstAttribute="trailing" secondItem="zxC-Ce-WPF" secondAttribute="trailing" constant="15" id="cCy-xF-Mfx"/>
+                                            <constraint firstItem="zxC-Ce-WPF" firstAttribute="leading" secondItem="UXq-3A-gha" secondAttribute="leading" id="fZb-X8-VWj"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXq-3A-gha">
-                                        <rect key="frame" x="8" y="63" width="359" height="219"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottomMargin" secondItem="UXq-3A-gha" secondAttribute="bottom" constant="5" id="1wp-Ce-IPg"/>
-                                    <constraint firstItem="zxC-Ce-WPF" firstAttribute="trailing" secondItem="8GP-7p-8VD" secondAttribute="trailingMargin" id="CPu-0O-QcH"/>
-                                    <constraint firstItem="UXq-3A-gha" firstAttribute="trailing" secondItem="8GP-7p-8VD" secondAttribute="trailingMargin" id="HSX-DV-5kg"/>
-                                    <constraint firstItem="UXq-3A-gha" firstAttribute="top" secondItem="zxC-Ce-WPF" secondAttribute="bottom" constant="5" id="MW5-06-wcp"/>
-                                    <constraint firstItem="zxC-Ce-WPF" firstAttribute="top" secondItem="8GP-7p-8VD" secondAttribute="topMargin" constant="25" id="Swd-bW-gf8"/>
-                                    <constraint firstItem="UXq-3A-gha" firstAttribute="leading" secondItem="8GP-7p-8VD" secondAttribute="leadingMargin" id="V4a-DP-fGl"/>
-                                    <constraint firstItem="zxC-Ce-WPF" firstAttribute="leading" secondItem="8GP-7p-8VD" secondAttribute="leadingMargin" id="iho-rj-BUk"/>
-                                    <constraint firstAttribute="height" constant="295" id="srR-ep-rS8"/>
+                                    <constraint firstItem="8GP-7p-8VD" firstAttribute="centerX" secondItem="Swp-JD-V6Y" secondAttribute="centerX" id="EKi-9l-VbO"/>
+                                    <constraint firstItem="8GP-7p-8VD" firstAttribute="leading" secondItem="Swp-JD-V6Y" secondAttribute="leading" id="Key-6V-FUz"/>
+                                    <constraint firstAttribute="trailing" secondItem="8GP-7p-8VD" secondAttribute="trailing" id="UNv-bI-96U"/>
+                                    <constraint firstAttribute="bottom" secondItem="8GP-7p-8VD" secondAttribute="bottom" id="p61-91-9nb"/>
+                                    <constraint firstItem="8GP-7p-8VD" firstAttribute="top" secondItem="Swp-JD-V6Y" secondAttribute="top" constant="500" id="wkc-Ya-ZE8"/>
                                 </constraints>
-                            </view>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8GP-7p-8VD" firstAttribute="leading" secondItem="aSm-xY-anC" secondAttribute="leading" id="O2P-ZT-rQf"/>
-                            <constraint firstAttribute="trailing" secondItem="8GP-7p-8VD" secondAttribute="trailing" id="SPn-W9-hKX"/>
-                            <constraint firstItem="3e8-rq-FFA" firstAttribute="top" secondItem="8GP-7p-8VD" secondAttribute="bottom" id="fT4-9Q-bcA"/>
+                            <constraint firstItem="r92-Xz-9ZK" firstAttribute="top" secondItem="eAt-ga-q7Y" secondAttribute="bottom" id="NHJ-Xt-bWf"/>
+                            <constraint firstItem="Swp-JD-V6Y" firstAttribute="leading" secondItem="aSm-xY-anC" secondAttribute="leadingMargin" constant="5" id="UCl-og-cFZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Swp-JD-V6Y" secondAttribute="trailing" constant="5" id="Yhp-nn-gyO"/>
+                            <constraint firstItem="r92-Xz-9ZK" firstAttribute="bottom" secondItem="3e8-rq-FFA" secondAttribute="top" id="dbw-0M-uCY"/>
+                            <constraint firstItem="Swp-JD-V6Y" firstAttribute="centerX" secondItem="r92-Xz-9ZK" secondAttribute="centerX" id="ecn-2B-03H"/>
+                            <constraint firstItem="3e8-rq-FFA" firstAttribute="top" secondItem="Swp-JD-V6Y" secondAttribute="bottom" id="icW-Wa-TXM"/>
+                            <constraint firstItem="Swp-JD-V6Y" firstAttribute="top" secondItem="eAt-ga-q7Y" secondAttribute="bottom" id="rHN-Fa-Wxw"/>
+                            <constraint firstItem="r92-Xz-9ZK" firstAttribute="leading" secondItem="aSm-xY-anC" secondAttribute="leading" id="zoM-sr-eM1"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="infoView" destination="8GP-7p-8VD" id="yZQ-1U-WsL"/>
                         <outlet property="overviewLabel" destination="UXq-3A-gha" id="d8L-fI-aQh"/>
                         <outlet property="posterImageView" destination="r92-Xz-9ZK" id="gvk-vU-TXn"/>
+                        <outlet property="scrollView" destination="Swp-JD-V6Y" id="Koh-2B-R6M"/>
                         <outlet property="titleLabel" destination="zxC-Ce-WPF" id="tPw-38-xN4"/>
                     </connections>
                 </viewController>
