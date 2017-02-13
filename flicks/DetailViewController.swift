@@ -27,7 +27,7 @@ class DetailViewController: UIViewController {
         let title = movie["title"] as! String
         let overview = movie["overview"] as! String
         if let posterPath = movie["poster_path"] as? String {
-            let baseUrl = "http://image.tmdb.org/t/p/w500"
+            let baseUrl = "http://image.tmdb.org/t/p/w1000"
             let imageUrl = NSURL(string: baseUrl + posterPath)
             
             titleLabel?.text = title

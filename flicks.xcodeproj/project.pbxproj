@@ -76,8 +76,8 @@
 		582EEC731E47DDAE0093389F /* flicks */ = {
 			isa = PBXGroup;
 			children = (
-				582EEC8E1E47ED1D0093389F /* View Controllers */,
 				582EEC8D1E47ED120093389F /* Views */,
+				582EEC8E1E47ED1D0093389F /* View Controllers */,
 				582EEC741E47DDAE0093389F /* AppDelegate.swift */,
 				582EEC781E47DDAE0093389F /* Main.storyboard */,
 				582EEC7E1E47DDAE0093389F /* Assets.xcassets */,

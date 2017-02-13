@@ -17,10 +17,12 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var movies: [NSDictionary]?
     var filteredMovies: [NSDictionary]?
+    var endpoint: String!
     
     func loadDatafromNetwork(_ refreshControl: UIRefreshControl) {
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
-        let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")!
+        let url = URL(string: "https://api.themoviedb.org/3/movie/\(endpoint!)?api_key=\(apiKey)")!
+        
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         
         // Display HUD right before the request is made
@@ -48,7 +50,8 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     }
 
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {        self.searchBar.endEditing(true)
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.endEditing(true)
     }
     
     override func viewDidLoad() {
@@ -88,7 +91,7 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let overview = movie["overview"] as! String
         let posterPath = movie["poster_path"] as! String
         
-        let baseUrl = "http://image.tmdb.org/t/p/w342"
+        let baseUrl = "http://image.tmdb.org/t/p/w500"
         let imageUrl = NSURL(string: baseUrl + posterPath)
         
         cell.titleLabel?.text = title
